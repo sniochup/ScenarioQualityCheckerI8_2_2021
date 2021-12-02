@@ -9,7 +9,7 @@ Dla analityków dokumentujących wymagania funkcjonalne za pomocą scenariuszy n
 • Kroki mogą się zaczynać od słów kluczowych: IF, ELSE, FOR EACH
 
 Przykład:
-Tytuł: Dodanie książki
+Tytuł: Nadzór dokumentu wymagań funkcjonalnych
 Aktorzy:  Bibliotekarz
 Aktor systemowy: System
 

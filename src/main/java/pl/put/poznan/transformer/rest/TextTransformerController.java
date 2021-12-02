@@ -38,9 +38,6 @@ public class TextTransformerController {
         TextTransformer transformer = new TextTransformer(transforms);
         return transformer.transform(text);
     }
-
-
-
 }
 
 
