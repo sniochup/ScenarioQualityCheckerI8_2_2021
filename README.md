@@ -8,14 +8,13 @@ Dla analityków dokumentujących wymagania funkcjonalne za pomocą scenariuszy n
 • Kroki mogą zawierać pod-scenariusze (dowolny poziom zagłębień)
 • Kroki mogą się zaczynać od słów kluczowych: IF, ELSE, FOR EACH
 
-Przykład:
 Tytuł: Nadzór dokumentu wymagań funkcjonalnych
-Aktorzy:  Bibliotekarz
+Aktorzy: Autor Dokumentu
 Aktor systemowy: System
 
-• Bibliotekarz wybiera opcje dodania nowej pozycji książkowej
-• Wyświetla się formularz.
-• Bibliotekarz podaje dane książki.
+• Autor Dokumentu wybiera z udostepninej funkcjonalności programu funkcję urzytkową na swoim dokumencie
+• Wyświetla się okno do podania danych w formacie JSON
+• System przyjmuje polecenie
 • IF: Bibliotekarz pragnie dodać egzemplarze książki
     o Bibliotekarz wybiera opcję definiowania egzemplarzy
     o System prezentuje zdefiniowane egzemplarze
