@@ -1,28 +1,29 @@
 # ScenarioQualityCheckerI8_2_2021
-group project for laboratories IO
+![example workflow](https://github.com/AdrianKarolewski/ScenarioQualityCheckerI8_2_2021/actions/workflows/ci.yml/badge.svg)
+
+
 Dla analityków dokumentujących wymagania funkcjonalne za pomocą scenariuszy nasza aplikacja SQC dostarczy informacji ilościowych oraz umożliwi wykrywanie problemów w wymaganiach funkcjonalnych zapisanych w postaci scenariuszy. Aplikacja będzie dostępna poprzez GUI a także jako zdalne API dzięki czemu można ją zintegrować z istniejącymi narzędziami.
 
-"Notacja scenariuszy do wrzucenia do Readme.md projektu:
-• Scenariusz zawiera nagłówek określający jego tytuł i aktorów (zewnętrznych oraz system)
-• Scenariusz składa się z kroków (każdy krok zawiera tekst)
-• Kroki mogą zawierać pod-scenariusze (dowolny poziom zagłębień)
-• Kroki mogą się zaczynać od słów kluczowych: IF, ELSE, FOR EACH
+Notacja scenariuszy do wrzucenia do Readme.md projektu:
+- Scenariusz zawiera nagłówek określający jego tytuł i aktorów (zewnętrznych oraz system)
+- Scenariusz składa się z kroków (każdy krok zawiera tekst)
+- Kroki mogą zawierać pod-scenariusze (dowolny poziom zagłębień)
+- Kroki mogą się zaczynać od słów kluczowych: IF, ELSE, FOR EACH
 
 Tytuł: Nadzór dokumentu wymagań funkcjonalnych
 Aktorzy: Autor Dokumentu
 Aktor systemowy: System
 
-• Autor Dokumentu wybiera z udostepninej funkcjonalności programu funkcję urzytkową na swoim dokumencie
-• Wyświetla się okno do podania danych w formacie JSON
-• System przyjmuje polecenie
-• IF: Bibliotekarz pragnie dodać egzemplarze książki
-    o Bibliotekarz wybiera opcję definiowania egzemplarzy
-    o System prezentuje zdefiniowane egzemplarze
-    o FOR EACH egzemplarz:
-        • Bibliotekarz wybiera opcję dodania egzemplarza
-        • System prosi o podanie danych egzemplarza
-        • Bibliotekarz podaje dane egzemplarza i zatwierdza.
-        • System informuje o poprawnym dodaniu egzemplarza i prezentuje zaktualizowaną listę egzemplarzy.
-• Bibliotekarz zatwierdza dodanie książki.
-• System informuje o poprawnym dodaniu książki.
-"
+- Autor Dokumentu wybiera z udostepninej funkcjonalności programu funkcję urzytkową na swoim dokumencie
+- Wyświetla się okno do podania danych w formacie JSON
+- System przyjmuje polecenie
+- IF: Bibliotekarz pragnie dodać egzemplarze książki
+    - Bibliotekarz wybiera opcję definiowania egzemplarzy
+    - System prezentuje zdefiniowane egzemplarze
+    - FOR EACH egzemplarz:
+        - Bibliotekarz wybiera opcję dodania egzemplarza
+        - System prosi o podanie danych egzemplarza
+        - Bibliotekarz podaje dane egzemplarza i zatwierdza.
+        - System informuje o poprawnym dodaniu egzemplarza i prezentuje zaktualizowaną listę egzemplarzy.
+- Bibliotekarz zatwierdza dodanie książki.
+- System informuje o poprawnym dodaniu książki.
