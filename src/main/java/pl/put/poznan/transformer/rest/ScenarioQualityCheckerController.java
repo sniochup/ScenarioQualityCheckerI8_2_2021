@@ -8,35 +8,54 @@ import java.util.Arrays;
 
 
 @RestController
-@RequestMapping("/{text}")
 public class ScenarioQualityCheckerController {
 
     private static final Logger logger = LoggerFactory.getLogger(ScenarioQualityCheckerController.class);
 
-    @RequestMapping(method = RequestMethod.GET, produces = "application/json")
-    public String get(@PathVariable String text,
-                              @RequestParam(value="transforms", defaultValue="upper,escape") String[] transforms) {
+    @RequestMapping(method = RequestMethod.GET, path = "/steps-count/{filename}", produces = "application/json")
+    public String getStepsCount(@PathVariable String filename) {
 
-        // log the parameters
-        logger.debug(text);
-        logger.debug(Arrays.toString(transforms));
+        logger.debug(filename);
 
         // perform the transformation, you should run your logic here, below is just a silly example
-        ScenarioQualityChecker transformer = new ScenarioQualityChecker(transforms);
-        return transformer.transform(text);
+//        ScenarioQualityChecker transformer = new ScenarioQualityChecker(transforms);
+
+        return "get steps count " + filename;
     }
 
-    @RequestMapping(method = RequestMethod.POST, produces = "application/json")
-    public String post(@PathVariable String text,
-                      @RequestBody String[] transforms) {
+    @RequestMapping(method = RequestMethod.GET, path = "/keyword/{filename}", produces = "application/json")
+    public String getKeyword(@PathVariable String filename) {
+
+        logger.debug(filename);
+        return "get keyword "+ filename;
+    }
+
+    @RequestMapping(method = RequestMethod.GET, path = "/no-actor/{filename}", produces = "application/json")
+    public String getNoActor(@PathVariable String filename) {
+
+        logger.debug(filename);
+        return "get no actor "+ filename;
+    }
+
+    @RequestMapping(method = RequestMethod.GET, path = "/send-scenario/{filename}", produces = "application/json")
+    public String getSendScenario(@PathVariable String filename) {
+
+        logger.debug(filename);
+        return "get send scenario "+ filename;
+    }
+
+
+
+    @RequestMapping(method = RequestMethod.POST, path = "/post/{test}", produces = "application/json")
+    public String post(@PathVariable String test, @RequestBody String[] transforms) {
 
         // log the parameters
-        logger.debug(text);
+        logger.debug(test);
         logger.debug(Arrays.toString(transforms));
 
         // perform the transformation, you should run your logic here, below is just a silly example
         ScenarioQualityChecker transformer = new ScenarioQualityChecker(transforms);
-        return transformer.transform(text);
+        return transformer.transform(test);
     }
 }
 

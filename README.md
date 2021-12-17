@@ -4,15 +4,16 @@
 
 Dla analityków dokumentujących wymagania funkcjonalne za pomocą scenariuszy nasza aplikacja SQC dostarczy informacji ilościowych oraz umożliwi wykrywanie problemów w wymaganiach funkcjonalnych zapisanych w postaci scenariuszy. Aplikacja będzie dostępna poprzez GUI a także jako zdalne API dzięki czemu można ją zintegrować z istniejącymi narzędziami.
 
-Notacja scenariuszy do wrzucenia do Readme.md projektu:
+Notacja scenariuszy:
 - Scenariusz zawiera nagłówek określający jego tytuł i aktorów (zewnętrznych oraz system)
 - Scenariusz składa się z kroków (każdy krok zawiera tekst)
 - Kroki mogą zawierać pod-scenariusze (dowolny poziom zagłębień)
 - Kroki mogą się zaczynać od słów kluczowych: IF, ELSE, FOR EACH
 
-Tytuł: Nadzór dokumentu wymagań funkcjonalnych
-Aktorzy: Autor Dokumentu
-Aktor systemowy: System
+### Przykład:
+Tytuł: Nadzór dokumentu wymagań funkcjonalnych <br />
+Aktorzy: Autor Dokumentu <br />
+Aktor systemowy: System <br />
 
 - Autor Dokumentu wybiera z udostepninej funkcjonalności programu funkcję urzytkową na swoim dokumencie
 - Wyświetla się okno do podania danych w formacie JSON
