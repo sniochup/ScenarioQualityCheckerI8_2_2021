@@ -28,3 +28,6 @@ Aktor systemowy: System <br />
         - System informuje o poprawnym dodaniu egzemplarza i prezentuje zaktualizowaną listę egzemplarzy.
 - Bibliotekarz zatwierdza dodanie książki.
 - System informuje o poprawnym dodaniu książki.
+
+### Link do Product Backlogu:
+[Scenario Quality Checker - Product Backlog](https://bit.ly/3J3VKu3)
