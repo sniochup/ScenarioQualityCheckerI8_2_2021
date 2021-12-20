@@ -2,6 +2,7 @@ package pl.put.poznan.sqc.rest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
+import pl.put.poznan.sqc.logic.NoActor;
 import pl.put.poznan.sqc.scenario.Scenario;
 
 
@@ -30,12 +31,13 @@ public class ScenarioQualityCheckerController {
     }
 
     @GetMapping(path = "/no-actor", produces = "application/json")
-    public Scenario getNoActor(@RequestBody Scenario json) {
-
+    public NoActor getNoActor(@RequestBody Scenario json) {
         logger.debug(json.toString());
-        json.setTitle("Zmiana no-actor");
+        NoActor noActor = new NoActor();
+        noActor.calculate(json);
 
-        return json;
+
+        return noActor;
     }
 
     @GetMapping(path = "/send-scenario", produces = "application/json")

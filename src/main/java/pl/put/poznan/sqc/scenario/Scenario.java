@@ -9,6 +9,7 @@ import java.util.ArrayList;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Scenario {
 
+
     @JsonProperty("title")
     protected String title;
     @JsonProperty("systemActor")
