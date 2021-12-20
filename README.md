@@ -31,3 +31,5 @@ Aktor systemowy: System <br />
 
 ### Link do Product Backlogu:
 [Scenario Quality Checker - Product Backlog](https://bit.ly/3J3VKu3)
+### Link do Definition of Done:
+[DoD](https://bit.ly/3yLuNqn)
