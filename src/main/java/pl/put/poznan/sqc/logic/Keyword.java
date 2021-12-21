@@ -12,7 +12,7 @@ import pl.put.poznan.sqc.scenario.Step;
 public class Keyword implements ScenarioInterface {
 
     /**
-     * logger
+     * logging support param in LoggerFactory type
      */
     private static final Logger logger = LoggerFactory.getLogger(ScenarioQualityCheckerController.class);
     /**
@@ -48,7 +48,6 @@ public class Keyword implements ScenarioInterface {
                 checkSubSteps(subs);
             }
         }
-        logger.debug(step.getContent() + numberOfStepsWithKeywords.toString());
     }
 
     /**
@@ -69,11 +68,11 @@ public class Keyword implements ScenarioInterface {
                 checkSubSteps(s);
             }
         }
-        logger.debug(numberOfStepsWithKeywords.toString());
+        logger.info("Keyword calculate - numberOfStepsWithKeywords: " + numberOfStepsWithKeywords.toString());
     }
     /**
-     *
      * Method connects visitor to class that implemented calculate method
+     *
      * @param v object that visits
      * @param s scenario type variable
      */

@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class NoActor implements ScenarioInterface {
 
     /**
-     * logger
+     * logging support param in LoggerFactory type
      */
     private static final Logger logger = LoggerFactory.getLogger(ScenarioQualityCheckerController.class);
     /**
@@ -35,24 +35,21 @@ public class NoActor implements ScenarioInterface {
     public NoActor(Scenario scenario) {
         this.title = scenario.getTitle();
         this.stepsNoActor = new ArrayList<>();
-        logger.debug("Set title" + this.title);
     }
 
     /**
      * A method calculating number of sub-steps without any actor in the beginning of a scenario sub-step (and sub-step - recursively)
      *
-     * @param step for which we check the sub-step
+     * @param step     for which we check the sub-step
      * @param tempList list of the actor name and keywords
      */
     private void checkSubSteps(Step step, ArrayList<String> tempList) {
-        logger.debug("checkSubSteps");
         if (step.getSubSteps().size() != 0) {
             for (Step s : step.getSubSteps()) {
                 String content[] = s.getContent().split(" ");
                 if (!tempList.contains(content[0])) {
                     stepsNoActor.add(s.getContent());
                 }
-
                 checkSubSteps(s, tempList);
             }
         }
@@ -89,17 +86,13 @@ public class NoActor implements ScenarioInterface {
                 checkSubSteps(s, tempList);
             }
         }
-        logger.debug("Steps no actor: ");
-        for(String s : stepsNoActor)
-        {
-            logger.debug(s);
-        }
-
+        logger.info("NoActor calculate - steps no actor: " + stepsNoActor);
     }
+
     /**
-     *
      * Method connects visitor to class that implemented calculate method
-     * @param v object that visits
+     *
+     * @param v        object that visits
      * @param scenario scenario type variable
      */
     @Override

@@ -12,7 +12,7 @@ import pl.put.poznan.sqc.scenario.Step;
 public class StepsCount implements ScenarioInterface {
 
     /**
-     * logger
+     * logging support param in LoggerFactory type
      */
     private static final Logger logger = LoggerFactory.getLogger(ScenarioQualityCheckerController.class);
     /**
@@ -45,7 +45,6 @@ public class StepsCount implements ScenarioInterface {
                 checkSubSteps(subs);
             }
         }
-        logger.debug(step.getContent() + numberOfSteps.toString());
     }
 
     /**
@@ -63,11 +62,11 @@ public class StepsCount implements ScenarioInterface {
                 checkSubSteps(s);
             }
         }
-        logger.debug(numberOfSteps.toString());
+        logger.info("StepsCount calculate - numberOfSteps: "+ numberOfSteps.toString());
     }
     /**
-     *
      * Method connects visitor to class that implemented calculate method
+     *
      * @param v object that visits
      * @param scenario scenario type variable
      */

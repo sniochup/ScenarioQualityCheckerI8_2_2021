@@ -28,11 +28,11 @@ public class ScenarioQualityCheckerController {
      */
     @GetMapping(path = "/steps-count", produces = "application/json")
     public StepsCount getStepsCount(@RequestBody Scenario json) {
-        logger.debug(json.toString());
+        logger.debug("REST getStepsCount with body: "+ json);
         logger.info("Start steps-count function");
-        StepsCount sc = new StepsCount(json);
-        sc.accept(new Visitor(), json);
-        return sc;
+        StepsCount stepsCount = new StepsCount(json);
+        stepsCount.accept(new Visitor(), json);
+        return stepsCount;
     }
 
     /**
@@ -43,11 +43,11 @@ public class ScenarioQualityCheckerController {
      */
     @GetMapping(path = "/keyword", produces = "application/json")
     public Keyword getKeyword(@RequestBody Scenario json) {
-        logger.debug(json.toString());
+        logger.debug("REST getKeyword with body: "+ json);
         logger.info("Start keyword function");
-        Keyword k = new Keyword(json);
-        k.accept(new Visitor(), json);
-        return k;
+        Keyword keyword = new Keyword(json);
+        keyword.accept(new Visitor(), json);
+        return keyword;
     }
 
     /**
@@ -58,11 +58,11 @@ public class ScenarioQualityCheckerController {
      */
     @GetMapping(path = "/no-actor", produces = "application/json")
     public NoActor getNoActor(@RequestBody Scenario json) {
-        logger.debug(json.toString());
+        logger.debug("REST getNoActor with body: "+ json);
         logger.info("Start noActor function");
-        NoActor na = new NoActor(json);
-        na.accept(new Visitor(), json);
-        return na;
+        NoActor noActor = new NoActor(json);
+        noActor.accept(new Visitor(), json);
+        return noActor;
     }
 
 //    /**
