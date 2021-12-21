@@ -13,6 +13,10 @@ import java.util.ArrayList;
  * NoActor class implementation
  */
 public class NoActor implements ScenarioInterface {
+
+    /**
+     * logger
+     */
     private static final Logger logger = LoggerFactory.getLogger(ScenarioQualityCheckerController.class);
     /**
      * Title of return scenario
@@ -41,12 +45,14 @@ public class NoActor implements ScenarioInterface {
      * @param tempList list of the actor name and keywords
      */
     private void checkSubSteps(Step step, ArrayList<String> tempList) {
+        logger.debug("checkSubSteps");
         if (step.getSubSteps().size() != 0) {
             for (Step s : step.getSubSteps()) {
                 String content[] = s.getContent().split(" ");
                 if (!tempList.contains(content[0])) {
                     stepsNoActor.add(s.getContent());
                 }
+
                 checkSubSteps(s, tempList);
             }
         }
@@ -83,6 +89,12 @@ public class NoActor implements ScenarioInterface {
                 checkSubSteps(s, tempList);
             }
         }
+        logger.debug("Steps no actor: ");
+        for(String s : stepsNoActor)
+        {
+            logger.debug(s);
+        }
+
     }
     /**
      *
