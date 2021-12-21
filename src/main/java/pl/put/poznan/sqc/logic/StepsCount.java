@@ -1,5 +1,8 @@
 package pl.put.poznan.sqc.logic;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import pl.put.poznan.sqc.rest.ScenarioQualityCheckerController;
 import pl.put.poznan.sqc.scenario.Scenario;
 import pl.put.poznan.sqc.scenario.Step;
 
@@ -8,6 +11,10 @@ import pl.put.poznan.sqc.scenario.Step;
  */
 public class StepsCount implements ScenarioInterface {
 
+    /**
+     * logger
+     */
+    private static final Logger logger = LoggerFactory.getLogger(ScenarioQualityCheckerController.class);
     /**
      * Title of return scenario
      */
@@ -38,6 +45,7 @@ public class StepsCount implements ScenarioInterface {
                 checkSubSteps(subs);
             }
         }
+        logger.debug(step.getContent() + numberOfSteps.toString());
     }
 
     /**
@@ -55,6 +63,7 @@ public class StepsCount implements ScenarioInterface {
                 checkSubSteps(s);
             }
         }
+        logger.debug(numberOfSteps.toString());
     }
     /**
      *
