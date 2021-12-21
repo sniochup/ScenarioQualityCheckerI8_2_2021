@@ -6,20 +6,37 @@ import pl.put.poznan.sqc.scenario.Step;
 
 import java.util.ArrayList;
 
+/**
+ * NoActor class implementation
+ */
 public class NoActor implements ScenarioInterface {
 
     /**
      * Title of return scenario
      */
     private final String title;
+    /**
+     * List of steps which not begin with an actor
+     */
     private ArrayList<String> stepsNoActor;
 
+    /**
+     * NoActor class constructor
+     *
+     * @param scenario in Scenario type
+     */
     public NoActor(Scenario scenario) {
         this.title = scenario.getTitle();
         this.stepsNoActor = new ArrayList<>();
         calculate(scenario);
     }
 
+    /**
+     * A method calculating number of sub-steps without any actor in the beginning of a scenario sub-step (and sub-step - recursively)
+     *
+     * @param step for which we check the sub-step
+     * @param tempList list of the actor name and keywords
+     */
     private void checkSubSteps(Step step, ArrayList<String> tempList) {
         if (step.getSubSteps().size() != 0) {
             for (Step s : step.getSubSteps()) {
@@ -32,6 +49,11 @@ public class NoActor implements ScenarioInterface {
         }
     }
 
+    /**
+     * A method calculating number of steps without actor in the beginning of a scenario step
+     *
+     * @param scenario in Scenario type
+     */
     @Override
     public void calculate(Scenario scenario) {
         if (scenario.getSteps().size() == 0) {
@@ -60,10 +82,20 @@ public class NoActor implements ScenarioInterface {
         }
     }
 
+    /**
+     * Getter for title private variable
+     *
+     * @return variable title String value
+     */
     public String getTitle() {
         return title;
     }
 
+    /**
+     * Getter for stepsNoActor private variable
+     *
+     * @return variable stepsNoActor List of Strings value
+     */
     public ArrayList<String> getStepsNoActor() {
         return stepsNoActor;
     }
