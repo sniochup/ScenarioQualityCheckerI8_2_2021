@@ -68,7 +68,7 @@ public class StepsCount implements ScenarioInterface {
      * Method connects visitor to class that implemented calculate method
      *
      * @param v object that visits
-     * @param scenario scenario type variable
+     * @param scenario Scenario type variable
      */
     @Override
     public void accept(Visitor v, Scenario scenario) {
