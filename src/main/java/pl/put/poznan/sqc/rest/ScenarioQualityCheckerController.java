@@ -2,7 +2,9 @@ package pl.put.poznan.sqc.rest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
+import pl.put.poznan.sqc.logic.Keyword;
 import pl.put.poznan.sqc.logic.NoActor;
+import pl.put.poznan.sqc.logic.StepsCount;
 import pl.put.poznan.sqc.scenario.Scenario;
 
 /**
@@ -12,67 +14,57 @@ import pl.put.poznan.sqc.scenario.Scenario;
 @RequestMapping("/sqc")
 public class ScenarioQualityCheckerController {
 
+    /**
+     *  logging support param in LoggerFactory type
+     */
     private static final Logger logger = LoggerFactory.getLogger(ScenarioQualityCheckerController.class);
 
     /**
      * steps-count endpoint service
      *
-     * @param json - scenario received in request body
+     * @param json scenario received in request body
      * @return count of steps in scenario in json format
      */
     @GetMapping(path = "/steps-count", produces = "application/json")
-    public Scenario getStepsCount(@RequestBody Scenario json) {
-
+    public StepsCount getStepsCount(@RequestBody Scenario json) {
         logger.debug(json.toString());
-        json.setTitle("Zmiana steps-count");
-
-        return json;
+        return new StepsCount(json);
     }
 
     /**
      * keyword endpoint service
      *
-     * @param json - scenario received in request body
+     * @param json scenario received in request body
      * @return number of steps in the scenario which begin with the keyword (json format)
      */
     @GetMapping(path = "/keyword", produces = "application/json")
-    public Scenario getKeyword(@RequestBody Scenario json) {
-
+    public Keyword getKeyword(@RequestBody Scenario json) {
         logger.debug(json.toString());
-        json.setTitle("Zmiana keyword");
-
-        return json;
+        return new Keyword(json);
     }
 
     /**
      * no-actor endpoint service
      *
-     * @param json - scenario received in request body
+     * @param json scenario received in request body
      * @return list of steps in the scenario which not begin with the actor name (json format)
      */
     @GetMapping(path = "/no-actor", produces = "application/json")
     public NoActor getNoActor(@RequestBody Scenario json) {
         logger.debug(json.toString());
-        NoActor noActor = new NoActor();
-        noActor.calculate(json);
-
-
-        return noActor;
+        return new NoActor(json);
     }
 
-    /**
-     * send-scenario endpoint service
-     *
-     * @param json - scenario received in request body
-     * @return numbered scenario (json format)
-     */
-    @GetMapping(path = "/send-scenario", produces = "application/json")
-    public Scenario getSendScenario(@RequestBody Scenario json) {
-
-        logger.debug(json.toString());
-        json.setTitle("Zmiana send-scenario");
-
-        return json;
-    }
+//    /**
+//     * send-scenario endpoint service
+//     *
+//     * @param json scenario received in request body
+//     * @return numbered scenario (json format)
+//     */
+//    @GetMapping(path = "/send-scenario", produces = "application/json")
+//    public SendScenario getSendScenario(@RequestBody Scenario json) {
+//        logger.debug(json.toString());
+//        return new SendScenario();
+//    }
 
 }

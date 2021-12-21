@@ -11,13 +11,13 @@ Notacja scenariuszy:
 - Kroki mogą się zaczynać od słów kluczowych: IF, ELSE, FOR EACH
 
 ### Przykład:
-Tytuł: Nadzór dokumentu wymagań funkcjonalnych <br />
-Aktorzy: Autor Dokumentu <br />
+Tytuł: Dodanie książki <br />
+Aktorzy: Bibliotekarz <br />
 Aktor systemowy: System <br />
 
-- Autor Dokumentu wybiera z udostepninej funkcjonalności programu funkcję urzytkową na swoim dokumencie
-- Wyświetla się okno do podania danych w formacie JSON
-- System przyjmuje polecenie
+- Bibliotekarz wybiera opcje dodania nowej pozycji książkowej
+- Wyświetla się formularz
+- Bibliotekarz podaje dane książki
 - IF: Bibliotekarz pragnie dodać egzemplarze książki
     - Bibliotekarz wybiera opcję definiowania egzemplarzy
     - System prezentuje zdefiniowane egzemplarze
