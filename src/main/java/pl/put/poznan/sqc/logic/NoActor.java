@@ -1,5 +1,8 @@
 package pl.put.poznan.sqc.logic;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import pl.put.poznan.sqc.rest.ScenarioQualityCheckerController;
 import pl.put.poznan.sqc.scenario.Actor;
 import pl.put.poznan.sqc.scenario.Scenario;
 import pl.put.poznan.sqc.scenario.Step;
@@ -10,7 +13,7 @@ import java.util.ArrayList;
  * NoActor class implementation
  */
 public class NoActor implements ScenarioInterface {
-
+    private static final Logger logger = LoggerFactory.getLogger(ScenarioQualityCheckerController.class);
     /**
      * Title of return scenario
      */
@@ -28,7 +31,7 @@ public class NoActor implements ScenarioInterface {
     public NoActor(Scenario scenario) {
         this.title = scenario.getTitle();
         this.stepsNoActor = new ArrayList<>();
-        calculate(scenario);
+        logger.debug("Set title" + this.title);
     }
 
     /**
@@ -80,6 +83,16 @@ public class NoActor implements ScenarioInterface {
                 checkSubSteps(s, tempList);
             }
         }
+    }
+    /**
+     *
+     * Method connects visitor to class that implemented calculate method
+     * @param v object that visits
+     * @param scenario scenario type variable
+     */
+    @Override
+    public void accept(Visitor v, Scenario scenario) {
+        v.visit(this, scenario);
     }
 
     /**

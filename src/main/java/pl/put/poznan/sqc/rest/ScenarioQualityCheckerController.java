@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.*;
 import pl.put.poznan.sqc.logic.Keyword;
 import pl.put.poznan.sqc.logic.NoActor;
 import pl.put.poznan.sqc.logic.StepsCount;
+import pl.put.poznan.sqc.logic.Visitor;
 import pl.put.poznan.sqc.scenario.Scenario;
 
 /**
@@ -28,7 +29,10 @@ public class ScenarioQualityCheckerController {
     @GetMapping(path = "/steps-count", produces = "application/json")
     public StepsCount getStepsCount(@RequestBody Scenario json) {
         logger.debug(json.toString());
-        return new StepsCount(json);
+        logger.info("Start steps-count function");
+        StepsCount sc = new StepsCount(json);
+        sc.accept(new Visitor(), json);
+        return sc;
     }
 
     /**
@@ -40,7 +44,10 @@ public class ScenarioQualityCheckerController {
     @GetMapping(path = "/keyword", produces = "application/json")
     public Keyword getKeyword(@RequestBody Scenario json) {
         logger.debug(json.toString());
-        return new Keyword(json);
+        logger.info("Start keyword function");
+        Keyword k = new Keyword(json);
+        k.accept(new Visitor(), json);
+        return k;
     }
 
     /**
@@ -52,7 +59,10 @@ public class ScenarioQualityCheckerController {
     @GetMapping(path = "/no-actor", produces = "application/json")
     public NoActor getNoActor(@RequestBody Scenario json) {
         logger.debug(json.toString());
-        return new NoActor(json);
+        logger.info("Start noActor function");
+        NoActor na = new NoActor(json);
+        na.accept(new Visitor(), json);
+        return na;
     }
 
 //    /**

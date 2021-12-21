@@ -11,4 +11,12 @@ public interface ScenarioInterface {
      * @param scenario scenario type variable
      */
     void calculate(Scenario scenario);
+
+    /**
+     *
+     * Method connects visitor to class that implemented calculate method
+     * @param v object that visits
+     * @param scenario scenario type variable
+     */
+    public void accept(Visitor v, Scenario scenario);
 }

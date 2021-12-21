@@ -24,7 +24,6 @@ public class Keyword implements ScenarioInterface {
      */
     public Keyword(Scenario scenario) {
         this.title = scenario.getTitle();
-        calculate(scenario);
     }
 
     /**
@@ -62,6 +61,16 @@ public class Keyword implements ScenarioInterface {
                 checkSubSteps(s);
             }
         }
+    }
+    /**
+     *
+     * Method connects visitor to class that implemented calculate method
+     * @param v object that visits
+     * @param s scenario type variable
+     */
+    @Override
+    public void accept(Visitor v, Scenario s) {
+        v.visit(this, s);
     }
 
     /**

@@ -24,7 +24,6 @@ public class StepsCount implements ScenarioInterface {
      */
     public StepsCount(Scenario scenario) {
         this.title = scenario.getTitle();
-        calculate(scenario);
     }
 
     /**
@@ -56,6 +55,16 @@ public class StepsCount implements ScenarioInterface {
                 checkSubSteps(s);
             }
         }
+    }
+    /**
+     *
+     * Method connects visitor to class that implemented calculate method
+     * @param v object that visits
+     * @param scenario scenario type variable
+     */
+    @Override
+    public void accept(Visitor v, Scenario scenario) {
+        v.visit(this, scenario);
     }
 
     /**
