@@ -11,8 +11,19 @@ public class Visitor {
         act.calculate(s);
     }
 
-    public void visit(StepsCount scount, Scenario s) {
-        scount.calculate(s);
+    public void visit(StepsCount sCount, Scenario s) {
+        sCount.calculate(s);
     }
 
+    public void visit(Numbered num, Scenario s) {
+        num.calculate(s);
+    }
+
+    public void visit(Simplified simplified, Scenario s) {
+        simplified.calculate(s);
+    }
+
+    public void visit(Interaction interaction, Scenario s) {
+        interaction.calculate(s);
+    }
 }

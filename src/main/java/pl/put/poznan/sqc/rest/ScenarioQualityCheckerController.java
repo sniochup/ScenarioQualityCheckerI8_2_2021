@@ -2,10 +2,7 @@ package pl.put.poznan.sqc.rest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
-import pl.put.poznan.sqc.logic.Keyword;
-import pl.put.poznan.sqc.logic.NoActor;
-import pl.put.poznan.sqc.logic.StepsCount;
-import pl.put.poznan.sqc.logic.Visitor;
+import pl.put.poznan.sqc.logic.*;
 import pl.put.poznan.sqc.scenario.Scenario;
 
 /**
@@ -65,16 +62,50 @@ public class ScenarioQualityCheckerController {
         return noActor;
     }
 
-//    /**
-//     * send-scenario endpoint service
-//     *
-//     * @param json scenario received in request body
-//     * @return numbered scenario (json format)
-//     */
-//    @GetMapping(path = "/send-scenario", produces = "application/json")
-//    public SendScenario getSendScenario(@RequestBody Scenario json) {
-//        logger.debug(json.toString());
-//        return new SendScenario();
-//    }
+    /**
+     * numbered endpoint service
+     *
+     * @param json scenario received in request body
+     * @return numbered scenario (json format)
+     */
+    @GetMapping(path = "/numbered", produces = "application/json")
+    public Numbered getNumbered(@RequestBody Scenario json) {
+        logger.debug("REST getNumbered with body: "+ json);
+        logger.info("Start numbered function");
+        Numbered numbered = new Numbered(json);
+        numbered.accept(new Visitor(), json);
+        return numbered;
+    }
+
+    /**
+     * simplified endpoint service
+     *
+     * @param json scenario received in request body
+     * @param level selected level up to which will be returned sub-scenarios (default = 1 which means that application returns scenario without sub-scenarios)
+     * @return simplified scenario containing only sub-scenarios up to a certain level (json format)
+     */
+    @GetMapping(path = "/simplified", produces = "application/json")
+    public Simplified getSimplified(@RequestBody Scenario json, @RequestParam(value="level", defaultValue = "1") Integer level) {
+        logger.debug("REST getSimplified with: body - "+ json + "; level (param) - "+level);
+        logger.info("Start simplified function");
+        Simplified simplified = new Simplified(json, level);
+        simplified.accept(new Visitor(), json);
+        return simplified;
+    }
+
+    /**
+     * interaction endpoint service
+     *
+     * @param json scenario received in request body
+     * @return list of steps in the scenario which contains more than one actor (json format)
+     */
+    @GetMapping(path = "/interaction", produces = "application/json")
+    public Interaction getInteraction(@RequestBody Scenario json) {
+        logger.debug("REST getInteraction with body: "+ json);
+        logger.info("Start interaction function");
+        Interaction interaction = new Interaction(json);
+        interaction.accept(new Visitor(), json);
+        return interaction;
+    }
 
 }

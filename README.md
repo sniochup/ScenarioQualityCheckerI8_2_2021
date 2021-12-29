@@ -1,14 +1,17 @@
 # ScenarioQualityCheckerI8_2_2021
 ![example workflow](https://github.com/AdrianKarolewski/ScenarioQualityCheckerI8_2_2021/actions/workflows/ci.yml/badge.svg)
-
+###### _Application developed using Scrum methodology!_
+***
 
 Dla analityków dokumentujących wymagania funkcjonalne za pomocą scenariuszy nasza aplikacja SQC dostarczy informacji ilościowych oraz umożliwi wykrywanie problemów w wymaganiach funkcjonalnych zapisanych w postaci scenariuszy. Aplikacja będzie dostępna poprzez GUI a także jako zdalne API dzięki czemu można ją zintegrować z istniejącymi narzędziami.
 
-Notacja scenariuszy:
+### Notacja scenariuszy:
 - Scenariusz zawiera nagłówek określający jego tytuł i aktorów (zewnętrznych oraz system)
 - Scenariusz składa się z kroków (każdy krok zawiera tekst)
 - Kroki mogą zawierać pod-scenariusze (dowolny poziom zagłębień)
 - Kroki mogą się zaczynać od słów kluczowych: IF, ELSE, FOR EACH
+
+***
 
 ### Przykład:
 Tytuł: Dodanie książki <br />
@@ -29,7 +32,8 @@ Aktor systemowy: System <br />
 - Bibliotekarz zatwierdza dodanie książki.
 - System informuje o poprawnym dodaniu książki.
 
-### Link do Product Backlogu:
-[Scenario Quality Checker - Product Backlog](https://bit.ly/3J3VKu3)
-### Link do Definition of Done:
-[DoD](https://bit.ly/3yLuNqn)
+***
+
+## Linki:
+- [Scenario Quality Checker - Product Backlog](https://bit.ly/3J3VKu3)
+- [Definition of Done (DoD)](https://bit.ly/3yLuNqn)

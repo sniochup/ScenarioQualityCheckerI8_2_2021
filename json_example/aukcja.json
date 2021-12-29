@@ -1,0 +1,109 @@
+{
+  "title": "Sprzedaż aukcyjna",
+  "actors": [
+    {
+      "actor": "Sprzedający"
+    },
+    {
+      "actor":"Kupujący"
+    }
+  ],
+  "systemActor": [
+    {
+      "actor": "System"
+    }
+  ],
+  "steps": [
+    {
+      "content": "Sprzedający wystawia produkt na aukcję.",
+      "subSteps": [
+        {
+          "content":"Sprzedający zgłasza do systemu chęć wystawienia produktu na aukcję.",
+          "subSteps":[]
+        },
+        {
+          "content":"Sprzedający podaje dane produktu oraz cenę wywoławczą.",
+          "subSteps":[]
+        },
+        {
+          "content": "System weryfikuje poprawność danych.",
+          "subSteps": []
+        }
+      ]
+    },
+    {
+      "content": "Kupujący oferuje kwotę za produkt wyższą od aktualnie najwyższej oferty.",
+      "subSteps": [
+        {
+          "content":"IF: Kupujący oferuje kwotę za produkt wyższą od aktualnie najwyższej oferty. ",
+          "subSteps":[
+            {
+              "content":"Kupujący wygrywa aukcje",
+              "subSteps":[]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "content": "Kupujący przekazuje należność Sprzedającemu",
+      "subSteps": [
+        {
+          "content":"System tworzy nową płatność przypisaną do danej aukcji",
+          "subSteps":[]
+        },
+        {
+          "content":"Płatność za dany produkt",
+          "subSteps":[
+            {
+              "content":"Kupujący zostaje przekierowany na strone bankową",
+              "subSteps":[]
+            },
+            {
+              "content":"System odbiera potwierdzenie platności ze strony banku",
+              "subSteps":[]
+            }
+          ]
+        },
+        {
+          "content":"Sprzedający otrzymuje należność za sprzedany produkt",
+          "subSteps":[]
+        }
+      ]
+    },
+    {
+      "content": "Produkt zostaje przekazany Kupującemu",
+      "subSteps": [
+        {
+          "content":"Kupujący wybiera jedną z możliwych oferowanych przez system sposobów dostraczenia produktu.",
+          "subSteps":[]
+        },
+        {
+          "content":"Sprzedający za pomocą firmy kurierskiej wysyła dany produkt.",
+          "subSteps":[]
+        },
+        {
+          "content":"System informuje Kupującego o wysłanu produktu.",
+          "subSteps":[]
+        },
+        {
+          "content":"Kurier przekazuje produkt Kupującemu.",
+          "subSteps":[]
+        },
+        {
+          "content":"System odbiera potwierdzenie dostarczenia produktu od firmy kurierskiej.",
+          "subSteps":[]
+        },
+        {
+          "content":"System informuje Sprzedający o dostarczeniu produktu.",
+          "subSteps":[]
+        },
+        {
+          "content":"System zmienia status zamiuwienia jako zakończone.",
+          "subSteps":[]
+        }
+      ]
+    }
+
+  ]
+}
