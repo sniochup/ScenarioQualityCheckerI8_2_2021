@@ -35,7 +35,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./target/site/apidocs
           force_orphan: true
-          cname: AdrianKarolewski.github.io
+          cname: sniochup.github.io
 
       - name: Upload package
         uses: actions/upload-artifact@v2
